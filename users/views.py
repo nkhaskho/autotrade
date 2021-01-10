@@ -16,7 +16,7 @@ def login_view(request):
                 user = User.objects.get(username=username, password=password)
                 if user is not None:
                     print("redirecting to home...")
-                    #redirect('home_path')
+                    #redirect('www.google.com')
                     return render(request, "home.html", {"username": username})
             except Exception as exp:
                 print(exp)
