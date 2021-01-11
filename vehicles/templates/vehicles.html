@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block username %}
+{{ current_user }}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+        <div><h3>Available vehicles</h3></div>
+        <div class="list-group">
+                
+            {% for vehicle in vehicles %} 
+                <br>
+                <div>
+                    <a href="/vehicles/{{vehicle.id}}" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{ vehicle }}</h5>
+                            <small>{{vehicle.price}} DT</small>
+                        </div>
+                        <table>
+                            <tr>
+                                <td>Fuel Type: </td>
+                                <td>{{ vehicle.fuel_type }}</td>
+                            </tr>
+                            <tr>
+                                <td>Kilometers: </td>
+                                <td>{{ vehicle.kilometers }} Km</td>
+                            </tr>
+                        </table>
+                        <small>Owner: {{ vehicle.owner }}</small>
+                        </a>
+                </div>
+
+            {% endfor %} 
+
+        </div>
+  </div>
+{% endblock %}

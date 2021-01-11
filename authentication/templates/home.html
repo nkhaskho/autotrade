@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block username %}
+{{ current_user }}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>Home Page</h1>
+    <h4>Welcome {{ current_user }} </h4>
+  </div>
+{% endblock %}

@@ -1,8 +1,0 @@
-from django.urls import path
-from users import views
-
-urlpatterns = [
-    path('login/', views.login_view, name="login_path"),
-    path('home/', views.home_view, name="home_path"),
-    path('vehicles/', views.vehicles_view, name="vehicles_path")
-]
