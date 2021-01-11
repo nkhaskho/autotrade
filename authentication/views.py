@@ -34,8 +34,7 @@ def login_view(request):
 
 
 def home_view(request):
-    current_user = request.user
-    return render(request, "home.html", {"current_user": current_user})
+    return render(request, "home.html", {"user": request.user})
 
 
 def logout_view(request):

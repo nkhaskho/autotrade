@@ -15,11 +15,15 @@ def vehicle_details(request, id):
 def addvehicle_view(request):
     vehicle = Vehicle()
     message = ""
-    form = AddVehicleForm()
-    if request.method == 'GET':
-        form = AddVehicleForm()
+    form = AddVehicleForm(request.POST or None)
+    print(form)
     if request.method == 'POST':
-        form = AddVehicleForm(request.POST)
         if form.is_valid():
             model = form.cleaned_data.get("model")
-    return render(request, "addvehicle.html", {"vehicle": vehicle, "user": request.user, "message": message})
+            print(model)
+    return render(request, "addvehicle.html", {
+        "form": form, 
+        "vehicle": vehicle, 
+        "user": request.user, 
+        "message": message}
+    )
