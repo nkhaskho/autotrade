@@ -2,14 +2,15 @@ from django import forms
 from vehicles.models import *
 
 class AddVehicleForm(forms.Form):
+    """
     class Meta:
         model = Vehicle
         fields = ['model', 'brand', 'kilometers', 'fuel_type']
-
-
     """
+
     #for_sale, model, brand, fuel_type, kilometers, price, owner
-    for_sale = forms.ChoiceField(choices=(("Option 1", "For sale"), ("Option 2", "Not for sale"),))
+
+    for_sale = forms.BooleanField()
 
     model = forms.CharField(
         label="Model: ", 
@@ -21,14 +22,23 @@ class AddVehicleForm(forms.Form):
         )
     )
 
-    brand = forms.Select(
-        attrs={
-            "class": "form-control"
-        },
-        choices=list(Brand.objects.all())
+    brand = forms.ModelChoiceField(
+        queryset=Brand.objects.all(),
+        widget=forms.Select(
+            attrs={
+                "class": "form-control"
+            }
+        )    
     )
 
-    #fuel_type = forms.ChoiceField(choices=('Option 1', 'Gas'),('Option 2', 'Diesel'),('Option 3', 'Essence'),)
+    fuel_type = forms.ModelChoiceField(
+        queryset=FuelType.objects.all(),
+        widget=forms.Select(
+            attrs={
+                "class": "form-control"
+            }
+        )    
+    )
 
     kilometers = forms.IntegerField(
         widget=forms.NumberInput(
@@ -37,5 +47,15 @@ class AddVehicleForm(forms.Form):
             }
         )
     )
-    """
+
+    price = forms.IntegerField(
+        widget=forms.NumberInput(
+            attrs={
+                "class": "form-control"
+            }
+        )
+    )
+
+    
+    
 

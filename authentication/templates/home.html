@@ -8,6 +8,17 @@
   <div class="container">
     <h3 class="text-info">Home Page</h1>
     <h6>Welcome {{ user }} </h6><br>
+
+      <div class="list-group">
+        {% for vehicle in user_vehicles %}
+          <a href="/vehicles/{{vehicle.id}}" class="list-group-item list-group-item-action">
+            {{ vehicle }}
+          </a>
+        {% endfor %}
+      </div>
+    <br>
     <a class="btn btn-primary" href="/addvehicle" role="button">Add new Vehicle</a>
   </div>
+
+
 {% endblock %}

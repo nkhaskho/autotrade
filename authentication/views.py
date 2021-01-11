@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from authentication.forms import LoginForm
+from vehicles.models import *
 
 
 def login_view(request):
@@ -34,7 +35,8 @@ def login_view(request):
 
 
 def home_view(request):
-    return render(request, "home.html", {"user": request.user})
+    user_vehicles = Vehicle.objects.filter(owner=request.user)
+    return render(request, "home.html", {"user": request.user, "user_vehicles": user_vehicles})
 
 
 def logout_view(request):
