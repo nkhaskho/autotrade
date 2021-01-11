@@ -24,12 +24,9 @@ class AddVehicleForm(forms.Form):
     )
 
     brand = forms.Select(
-        label="Password: ", 
-        widget=forms.Select(
-            attrs={
-                "class": "form-control"
-            },
-            choices=Brand.objects.all()
-        )
+        attrs={
+            "class": "form-control"
+        },
+        choices=list(Brand.objects.all())
     )
 

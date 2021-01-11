@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block username %}
+{{ user }}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h3 class="text-info">Vehicle Details</h3>
+    <br>
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+              {{ vehicle.model }}
+              {% if vehicle.for_sale == True %}
+                <span class="badge badge-success">For sale</span>
+                {% endif %}
+            </h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ vehicle.brand }}</h6>
+          <br>
+          <ul class="list-group">
+            <li class="list-group-item disabled">
+                <strong>Kilometers: </strong> {{ vehicle.kilometers }}
+            </li>
+            <li class="list-group-item disabled">
+                <strong>Fuel Type: </strong> {{ vehicle.fuel_type }}
+            </li>
+            <li class="list-group-item disabled">
+                <strong>Owned By: </strong> {{ vehicle.owner }}
+            </li>
+          </ul>
+          
+        <br>
+        </div>
+      </div>
+
+</div>
+{% endblock %}
