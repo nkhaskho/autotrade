@@ -37,8 +37,10 @@
         </div>
       </div>
     <br>
-    <button type="button" class="btn btn-primary">Update</button>
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</button>
+    {% if user == vehicle.owner %}
+        <button type="button" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</button>
+    {% endif %}
 
 </div>
 
@@ -57,8 +59,8 @@
           Are you sure to delete this vehicle?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary">Yes, delete</button>
+          <a type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+          <a type="button" href="/delete/{{vehicle.id}}" class="btn btn-primary">Yes, delete</a>
         </div>
       </div>
     </div>

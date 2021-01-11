@@ -6,15 +6,12 @@
 
 {% block content %}
 <div class="container">
-    <h3 class="text-info">Add new Vehicle</h3>
+    <h3 class="text-info">Predict a Vehicle price</h3>
     <br>
 
     <form action="#" method="POST">
         {% csrf_token %}
-        <div class="form-group">
-          <label>For sale : </label>
-          {{ form.for_sale }}
-        </div>
+
         <div class="form-group">
           <label>Model Name : </label>
           {{ form.model }}
@@ -34,23 +31,13 @@
           {{ form.kilometers }}
         </div>
 
-        <div class="form-group">
-          <label>Price : </label>
-          {{ form.price }}
-        </div>
-
-        <div class="form-group">
-          <label>Photo : </label>
-          {{ form.photo }}
-        </div>
-
         <br>
         <div class="form-group">
-          <input type="submit" class="btn btn-primary " value="Add vehicle">
+          <input type="submit" class="btn btn-primary " value="Predict price">
         </div>
 
         {% if message != "" %}
-          <div class="alert alert-warning" role="alert">
+          <div class="alert alert-success" role="alert">
             {{ message }}
           </div>
         {% endif %}

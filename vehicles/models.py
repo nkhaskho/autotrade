@@ -6,7 +6,6 @@ class Brand(models.Model):
     def __str__(self):
         return self.name
 
-
 class FuelType(models.Model):
     fuel_type = models.CharField(max_length=30)
     def __str__(self):
@@ -21,5 +20,7 @@ class Vehicle(models.Model):
     kilometers = models.IntegerField()
     price = models.IntegerField()
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to = 'photos/', default = 'photos/Grande_punto_5tuerer.jpeg')
     def __str__(self):
         return "{} - {}".format(self.model, self.brand)
+
